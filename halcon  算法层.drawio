@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0" version="28.2.8">
+  <diagram name="第 1 页" id="a2ikNDkjIqO2Z89GDG15">
+    <mxGraphModel dx="1153" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="light-dark(#ffffff, #121212)" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="layer1_container" value="上层应用层" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;strokeColor=#333333;fillColor=#f5f5f5;fontSize=13;fontStyle=1;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer1_component" value="UI界面 / 业务逻辑" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#FFFFFF;fontSize=12;" vertex="1" parent="layer1_container">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2_container" value="算法引擎层" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;strokeColor=#333333;fillColor=#f5f5f5;fontSize=13;fontStyle=1;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="320" y="80" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer2_component" value="DeepInfer 类" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#FFFFFF;fontSize=12;" vertex="1" parent="layer2_container">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3_container" value="Halcon/.NET 库" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;strokeColor=#333333;fillColor=#f5f5f5;fontSize=13;fontStyle=1;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer3_component" value="HalconDotNet.dll" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#FFFFFF;fontSize=12;" vertex="1" parent="layer3_container">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4_container" value="硬件层" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;strokeColor=#333333;fillColor=#f5f5f5;fontSize=13;fontStyle=1;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="880" y="80" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="layer4_component" value="CPU / GPU" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#FFFFFF;fontSize=12;" vertex="1" parent="layer4_container">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="调用推理方法" style="endArrow=classic;html=1;rounded=0;strokeColor=#333333;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="layer1_container" target="layer2_container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="140" as="sourcePoint" />
+            <mxPoint x="310" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow2" value="封装调用" style="endArrow=classic;html=1;rounded=0;strokeColor=#333333;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="layer2_container" target="layer3_container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="140" as="sourcePoint" />
+            <mxPoint x="590" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow3" value="执行计算" style="endArrow=classic;html=1;rounded=0;strokeColor=#333333;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="layer3_container" target="layer4_container">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="140" as="sourcePoint" />
+            <mxPoint x="870" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
