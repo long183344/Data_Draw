@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36 Edg/142.0.0.0" version="28.2.9">
+  <diagram name="第 1 页" id="ZEJ1Tw_q8ncpw-_iMzq6">
+    <mxGraphModel dx="2018" dy="1146" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="input-image" value="输入图像" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#333333;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="170" y="140" width="120" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="input-prompts" value="输入提示&lt;br&gt;（点、框选等）" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#333333;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="170" y="340" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="image-encoder" value="&lt;b&gt;Image Encoder&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px&quot;&gt;（重量级, ViT-based）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#EBF4FF;strokeColor=#A6C9FF;fontColor=#333333;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="340" y="140" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="prompt-encoder" value="&lt;b&gt;Prompt Encoder&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px&quot;&gt;（轻量级）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#EBF4FF;strokeColor=#A6C9FF;fontColor=#333333;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="340" y="340" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mask-decoder" value="&lt;b&gt;Mask Decoder&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px&quot;&gt;（轻量级, 实时）&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#EBF4FF;strokeColor=#A6C9FF;fontColor=#333333;strokeWidth=1.5;" parent="1" vertex="1">
+          <mxGeometry x="640" y="225" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="output-masks" value="输出掩膜&lt;br&gt;&amp;amp;&lt;br&gt;质量分数 (IoU)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#333333;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="870" y="240" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-img-to-enc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="input-image" target="image-encoder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-prompt-to-enc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="input-prompts" target="prompt-encoder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-imgenc-to-dec" value="Image Embedding" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeColor=#333333;strokeWidth=1.5;fontColor=#333333;fontSize=11;" parent="1" source="image-encoder" target="mask-decoder" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-promptenc-to-dec" value="Prompt Embeddings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeColor=#333333;strokeWidth=1.5;fontColor=#333333;fontSize=11;" parent="1" source="prompt-encoder" target="mask-decoder" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="275" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-dec-to-output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeColor=#333333;strokeWidth=1.5;" parent="1" source="mask-decoder" target="output-masks" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
