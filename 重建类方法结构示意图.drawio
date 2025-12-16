@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
+  <diagram name="第 1 页" id="2LhAtUa2F_Bju4TU8JY9">
+    <mxGraphModel dx="950" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="输入图像" vertex="1">
+          <mxGeometry height="60" width="100" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="encoder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="编码器" vertex="1">
+          <mxGeometry height="60" width="100" x="180" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="latent" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="潜在空间&#xa;(低维特征)" vertex="1">
+          <mxGeometry height="60" width="120" x="320" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="decoder" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="解码器" vertex="1">
+          <mxGeometry height="60" width="100" x="480" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="recon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="重建图像" vertex="1">
+          <mxGeometry height="60" width="100" x="620" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="errorMap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="误差映射&#xa;(异常热力图)" vertex="1">
+          <mxGeometry height="60" width="140" x="310" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="input" style="endArrow=block;html=1;strokeColor=#000000;" target="encoder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="encoder" style="endArrow=block;html=1;strokeColor=#000000;" target="latent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="latent" style="endArrow=block;html=1;strokeColor=#000000;" target="decoder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="decoder" style="endArrow=block;html=1;strokeColor=#000000;" target="recon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="input" style="endArrow=block;dashed=1;html=1;strokeColor=#999999;" target="errorMap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="recon" style="endArrow=block;dashed=1;html=1;strokeColor=#999999;" target="errorMap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" value="像素/特征差异计算" vertex="1">
+          <mxGeometry height="30" width="180" x="290" y="270" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
