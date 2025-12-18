@@ -1,0 +1,176 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
+  <diagram name="第 1 页" id="1nmkheoanx0PHhheeJlu">
+    <mxGraphModel dx="2205" dy="1949" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="style_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;dashed=1;verticalAlign=top;fontStyle=1;fontColor=#333333;" value="" vertex="1">
+          <mxGeometry height="10" width="10" as="geometry" />
+        </mxCell>
+        <mxCell id="style_module" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontStyle=1;fontSize=12;" value="" vertex="1">
+          <mxGeometry height="10" width="10" as="geometry" />
+        </mxCell>
+        <mxCell id="style_img" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;size=15;" value="" vertex="1">
+          <mxGeometry height="10" width="10" as="geometry" />
+        </mxCell>
+        <mxCell id="style_feat" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="" vertex="1">
+          <mxGeometry height="10" width="10" as="geometry" />
+        </mxCell>
+        <mxCell id="group_las_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;strokeWidth=1;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontColor=#666666;" value="LAS: Local Anomaly Synthesis (Image Space)" vertex="1">
+          <mxGeometry height="180" width="300" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tex_source" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d6b656;size=0.15;" value="Texture Source&lt;br&gt;(DTD / Perlin)" vertex="1">
+          <mxGeometry height="50" width="80" x="60" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="aug_op" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Augmentation&lt;br&gt;&amp; Mask Gen" vertex="1">
+          <mxGeometry height="40" width="90" x="160" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="mix_op" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" value="Blend (Mix)" vertex="1">
+          <mxGeometry height="40" width="40" x="270" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="input_normal" parent="1" style="style_img" value="Normal Image" vertex="1">
+          <mxGeometry height="60" width="80" x="60" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="input_las" parent="1" style="style_img" value="Synthetic Image&lt;br&gt;(LAS)" vertex="1">
+          <mxGeometry height="60" width="80" x="250" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_tex_aug" edge="1" parent="1" source="tex_source" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="aug_op" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_aug_mix" edge="1" parent="1" source="aug_op" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="mix_op" value="Mask">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_norm_mix" edge="1" parent="1" source="input_normal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="mix_op" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="100" y="240" />
+              <mxPoint x="290" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_mix_las" edge="1" parent="1" source="mix_op" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="input_las" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="encoder" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontStyle=1;fontSize=14;rotation=-90;" value="Shared Feature Extractor&lt;br&gt;(Backbone)" vertex="1">
+          <mxGeometry height="280" width="160" x="250" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_las_enc" edge="1" parent="1" source="input_las" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" target="encoder" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="200" />
+              <mxPoint x="360" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_norm_enc" edge="1" parent="1" source="input_normal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="encoder" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="290" />
+              <mxPoint x="360" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="feat_las" parent="1" style="style_feat" value="LAS Features&lt;br&gt;(Far-distribution)" vertex="1">
+          <mxGeometry height="60" width="120" x="500" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="feat_normal" parent="1" style="style_feat" value="Normal Features" vertex="1">
+          <mxGeometry height="60" width="120" x="500" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_enc_flas" edge="1" parent="1" source="encoder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" target="feat_las" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="200" />
+              <mxPoint x="440" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_enc_fnorm" edge="1" parent="1" source="encoder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;" target="feat_normal" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="290" />
+              <mxPoint x="440" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="group_gas" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;strokeWidth=1;dashed=1;verticalAlign=top;align=left;spacingLeft=10;fontStyle=1;fontColor=#666666;" value="GAS: Global Anomaly Synthesis (Feature Space)" vertex="1">
+          <mxGeometry height="160" width="360" x="480" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="gas_noise" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="+ Gaussian Noise" vertex="1">
+          <mxGeometry height="30" width="120" x="500" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="gas_grad" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Gradient Ascent" vertex="1">
+          <mxGeometry height="60" width="100" x="510" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="gas_proj" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Truncated&lt;br&gt;Projection" vertex="1">
+          <mxGeometry height="50" width="100" x="640" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="feat_gas" parent="1" style="style_feat" value="GAS Features&lt;br&gt;(Near-distribution)" vertex="1">
+          <mxGeometry height="60" width="120" x="760" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_fnorm_gas" edge="1" parent="1" source="feat_normal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gas_noise" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_noise_grad" edge="1" parent="1" source="gas_noise" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gas_grad" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_grad_proj" edge="1" parent="1" source="gas_grad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="gas_proj" value="Optimization">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_proj_fgas" edge="1" parent="1" source="gas_proj" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="feat_gas" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="head" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontStyle=1;" value="Unified Discriminator / Head" vertex="1">
+          <mxGeometry height="200" width="60" x="720" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_flas_head" edge="1" parent="1" source="feat_las" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="head" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="200" />
+              <mxPoint x="680" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_fnorm_head" edge="1" parent="1" source="feat_normal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="head" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="290" />
+              <mxPoint x="680" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_fgas_head" edge="1" parent="1" source="feat_gas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="head" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="380" />
+              <mxPoint x="750" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="loss_las" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Focal + OHEM&lt;br&gt;(Constraint: Anomaly)" vertex="1">
+          <mxGeometry height="50" width="120" x="830" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="loss_norm" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" value="BCE Loss&lt;br&gt;(Constraint: Normal)" vertex="1">
+          <mxGeometry height="50" width="120" x="830" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="loss_gas" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="BCE Loss&lt;br&gt;(Constraint: Anomaly)" vertex="1">
+          <mxGeometry height="50" width="120" x="830" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_head_loss1" edge="1" parent="1" source="head" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.2;exitDx=0;exitDy=0;" target="loss_las" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_head_loss2" edge="1" parent="1" source="head" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="loss_norm" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_head_loss3" edge="1" parent="1" source="head" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.8;exitDx=0;exitDy=0;" target="loss_gas" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#B85450;fontSize=11;fontStyle=1" value="Strong Anomaly (LAS)" vertex="1">
+          <mxGeometry height="20" width="120" x="500" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#B85450;fontSize=11;fontStyle=1" value="Weak Anomaly (GAS)" vertex="1">
+          <mxGeometry height="20" width="120" x="760" y="480" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
