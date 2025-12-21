@@ -1,0 +1,79 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
+  <diagram name="第 1 页" id="jsF_GAQV7uR-UmxZkwuB">
+    <mxGraphModel dx="950" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="startInit" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="开始初始化" vertex="1">
+          <mxGeometry height="40" width="110" x="87.5" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="devCheck" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="设备检测" vertex="1">
+          <mxGeometry height="60" width="90" x="97.5" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="queryGpuCpu" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="查询可用GPU/CPU" vertex="1">
+          <mxGeometry height="40" width="105" x="90" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="3f5zomxHSwuBVAVkGFRC-1" edge="1" parent="1" source="selectBestDev" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="setPath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="selectBestDev" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="选择最优设备" vertex="1">
+          <mxGeometry height="40" width="105" x="90" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="3f5zomxHSwuBVAVkGFRC-2" edge="1" parent="1" source="setPath" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="initDone">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="setPath" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="设置文件路径" vertex="1">
+          <mxGeometry height="60" width="110" x="240" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="readHdl" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="读取模型文件 .hdl" vertex="1">
+          <mxGeometry height="40" width="120" x="235" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="readHdict" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="读取预处理参数 .hdict" vertex="1">
+          <mxGeometry height="40" width="125" x="232.5" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="loadAndConfig" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="加载与配置模型" vertex="1">
+          <mxGeometry height="40" width="130" x="230" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="readHandle" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="加载模型句柄" vertex="1">
+          <mxGeometry height="40" width="135" x="395" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="setInferParam" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="设置推理参数" vertex="1">
+          <mxGeometry height="40" width="135" x="395" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="getModelInfo" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="获取模型信息" vertex="1">
+          <mxGeometry height="40" width="135" x="395" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="initDone" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;" value="初始化完成" vertex="1">
+          <mxGeometry height="40" width="120" x="402.5" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="e_start_dev" edge="1" parent="1" source="startInit" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="devCheck">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dev_query" edge="1" parent="1" source="devCheck" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="queryGpuCpu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_query_select" edge="1" parent="1" source="queryGpuCpu" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="selectBestDev">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_path_readHdl" edge="1" parent="1" source="setPath" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="readHdl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_readHdl_readHdict" edge="1" parent="1" source="readHdl" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="readHdict">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_readHdict_load" edge="1" parent="1" source="readHdict" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="loadAndConfig">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_readHandle_setParam" edge="1" parent="1" source="readHandle" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="setInferParam">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_setParam_getInfo" edge="1" parent="1" source="setInferParam" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="getModelInfo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_getInfo_done" edge="1" parent="1" source="getModelInfo" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endSize=8;rounded=0;strokeWidth=2;" target="initDone">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
