@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.9">
+  <diagram name="第 1 页" id="S_nwkqhQcE_jKb8egLxB">
+    <mxGraphModel dx="2018" dy="1140" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="640" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-7" edge="1" parent="1" source="hdr_modules" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="mod_train">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-8" edge="1" parent="1" source="hdr_modules" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="mod_dataset">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-9" edge="1" parent="1" source="hdr_modules" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="mod_project">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-10" edge="1" parent="1" source="hdr_modules" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="mod_apply">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_modules" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#F5F5F5;strokeWidth=1.2;" value="平台功能模块设计" vertex="1">
+          <mxGeometry height="40" width="130" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-3" edge="1" parent="1" source="hdr_layers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="layer_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-4" edge="1" parent="1" source="hdr_layers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="layer_engine">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-5" edge="1" parent="1" source="hdr_layers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="layer_hw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHc9DMvl7vdtOHO7e05y-6" edge="1" parent="1" source="hdr_layers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="layer_ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr_layers" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#F5F5F5;strokeWidth=1.2;" value="系统分层架构设计" vertex="1">
+          <mxGeometry height="40" width="130" x="500" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="mod_project" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="项目管理模块" vertex="1">
+          <mxGeometry height="30" width="140" x="230" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="mod_dataset" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="数据集管理模块" vertex="1">
+          <mxGeometry height="30" width="140" x="230" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="mod_train" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="模型训练与评估模块" vertex="1">
+          <mxGeometry height="30" width="140" x="230" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="mod_apply" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="模型应用模块" vertex="1">
+          <mxGeometry height="30" width="140" x="230" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_ui" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="表现层" vertex="1">
+          <mxGeometry height="30" width="140" x="670" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_engine" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="算法引擎层" vertex="1">
+          <mxGeometry height="30" width="140" x="670" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_service" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="业务逻辑服务层" vertex="1">
+          <mxGeometry height="30" width="140" x="670" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_hw" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeColor=#000000;fillColor=#FFFFFF;strokeWidth=1.2;" value="硬件接口层" vertex="1">
+          <mxGeometry height="30" width="140" x="670" y="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
