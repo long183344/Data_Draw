@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.3.0">
+  <diagram name="第 1 页" id="tAlg7-8jwVCGuHUVN2UM">
+    <mxGraphModel dx="1378" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="100" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#999999;dashed=1;fillColor=#f5f5f5;fontSize=12;fontFamily=Microsoft YaHei;" value="前台线程：AnnotationView（用户交互）" vertex="1">
+          <mxGeometry height="200" width="260" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="101" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#999999;dashed=1;fillColor=#f5f5f5;fontSize=12;fontFamily=Microsoft YaHei;" value="后台线程：图像预加载 + 嵌入预计算" vertex="1">
+          <mxGeometry height="600" width="760" x="340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="102" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="用户浏览 / 滚动图像列表&#xa;切换当前样本" vertex="1">
+          <mxGeometry height="50" width="220" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="103" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="将邻近图像路径加入&#xa;_imagePreloadQueue" vertex="1">
+          <mxGeometry height="50" width="220" x="80" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="104" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="StartImagePreloader()&#xa;Task.Run(...) 启动后台预加载" vertex="1">
+          <mxGeometry height="50" width="260" x="390" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="adWJmiZyq1mYgPRHsel3-132" edge="1" parent="1" source="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="110" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="105" parent="1" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="_isPreloading 为 true？" vertex="1">
+          <mxGeometry height="70" width="160" x="440" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="106" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="TryDequeue(imagePath)" vertex="1">
+          <mxGeometry height="50" width="260" x="390" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="107" parent="1" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="是否取到 imagePath？" vertex="1">
+          <mxGeometry height="70" width="180" x="430" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="108" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="PreloadImageAsync(imagePath)" vertex="1">
+          <mxGeometry height="50" width="260" x="390" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="109" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="session = GetOrCreateSession(imagePath)" vertex="1">
+          <mxGeometry height="50" width="230" x="730" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="110" parent="1" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="session.OriginalImage == null？" vertex="1">
+          <mxGeometry height="70" width="210" x="680" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="111" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="读盘加载图像：&#xa;session.OriginalImage = Cv2.ImRead(imagePath)" vertex="1">
+          <mxGeometry height="60" width="260" x="840" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="112" parent="1" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="!session.IsEmbeddingComputed &amp;&amp;&#xa;!session.IsEmbeddingComputing？" vertex="1">
+          <mxGeometry height="70" width="250" x="700" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="113" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="ComputeEmbeddingWithLowPriorityAsync(session)&#xa;（低优先级计算嵌入）" vertex="1">
+          <mxGeometry height="60" width="260" x="740" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="114" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#333333;fillColor=#ffffff;fontSize=11;fontFamily=Microsoft YaHei;" value="Task.Delay(100ms)" vertex="1">
+          <mxGeometry height="50" width="200" x="500" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="115" edge="1" parent="1" source="102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="116" edge="1" parent="1" source="103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="104" value="开始预加载">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="170" />
+              <mxPoint x="520" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="117" edge="1" parent="1" source="104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="118" edge="1" parent="1" source="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="106" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="119" edge="1" parent="1" source="105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="114" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="120" edge="1" parent="1" source="106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="121" edge="1" parent="1" source="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="108" value="取到 imagePath">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="122" edge="1" parent="1" source="107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="114" value="队列为空">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="123" edge="1" parent="1" source="108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="124" edge="1" parent="1" source="109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="125" edge="1" parent="1" source="110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="111" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="126" edge="1" parent="1" source="111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="127" edge="1" parent="1" source="110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="112" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="128" edge="1" parent="1" source="112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="113" value="是">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="129" edge="1" parent="1" source="112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="114" value="否">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="130" edge="1" parent="1" source="113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="131" edge="1" parent="1" source="114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#333333;fontSize=10;fontFamily=Microsoft YaHei;" target="105" value="下一轮循环">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
